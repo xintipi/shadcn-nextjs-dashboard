@@ -2,6 +2,8 @@
 
 A modern, responsive dashboard application built with Next.js 14, TypeScript, and shadcn/ui components. This project implements best practices for building scalable web applications with a beautiful UI/UX.
 
+![Dashboard](https://shadcn-nextjs-dashboard.vercel.app/og-image.png)
+
 ## 🚀 Features
 
 - **Modern Tech Stack**: Built with Next.js 14, TypeScript, and Tailwind CSS
