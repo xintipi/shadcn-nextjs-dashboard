@@ -21,9 +21,11 @@ const Index = () => {
               <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
               <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
               <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-              <Button variant="outline" className="border-purple-500 hover:text-white hover:bg-purple-500 bg-purple-500 text-white">
+              <Button variant="outline" className="border-purple-500 hover:text-white hover:bg-purple-500 bg-purple-500 text-white" asChild>
+                <Link href="https://github.com/naveenda/shadcn-nextjs-dashboard">
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
+                </Link>
               </Button>
             </div>
           </div>
@@ -70,17 +72,17 @@ const Index = () => {
           <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
             <div className="text-center">
               <div className="text-2xl font-bold text-white">
-              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shacn-nextjs-dashboard&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shadcn-nextjs-dashboard&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
               </div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-white">
-              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shacn-nextjs-dashboard&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shadcn-nextjs-dashboard&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
               </div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-white">
-              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shacn-nextjs-dashboard&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shadcn-nextjs-dashboard&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
               </div>
             </div>
           </div>
@@ -221,7 +223,7 @@ const Index = () => {
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-gray-600  hover:bg-black px-8 py-6 text-lg text-black hover:text-white hover:border-black " asChild>
-              <Link href="https://github.com/naveenda/shacn-nextjs-dashboard">
+              <Link href="https://github.com/naveenda/shadcn-nextjs-dashboard">
               <Github className="w-5 h-5 mr-2" />
                GitHub
               </Link>
@@ -247,12 +249,12 @@ const Index = () => {
               </p>
               <div className="flex space-x-4">
                 <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-black" asChild>
-                  <Link href="https://github.com/naveenda/shacn-nextjs-dashboard">
+                  <Link href="https://github.com/naveenda/shadcn-nextjs-dashboard">
                     <Github className="w-5 h-5" />
                   </Link>
                 </Button>
                 <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-black" asChild>
-                  <Link href="https://github.com/naveenda/shacn-nextjs-dashboard">
+                  <Link href="https://github.com/naveenda/shadcn-nextjs-dashboard">
                   <Star className="w-5 h-5" />
                   </Link>
                 </Button>
