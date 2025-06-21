@@ -1,6 +1,5 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
 	LogIn,
@@ -9,7 +8,6 @@ import {
 	Mail,
 	Shield,
 	Key,
-	ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -58,56 +56,34 @@ const authPages = [
 	},
 ];
 
-export default function AuthHubPage() {
+export default function AuthPage() {
 	return (
-		<div className="space-y-6">
-			<div>
-				<h2 className="text-3xl font-bold tracking-tight">Auth Pages</h2>
+		<div className="space-y-4">
+			<div className="text-center">
+				<h1 className="text-3xl font-bold">Authentication Pages</h1>
 				<p className="text-muted-foreground">
-					Links to the fullscreen authentication pages for your application.
+					Here are the authentication-related pages. These now live in their own full-screen layout.
 				</p>
 			</div>
-
-			<Card>
-				<CardHeader>
-					<CardTitle>Available Auth Pages</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-						{authPages.map((page) => {
-							const Icon = page.icon;
-							return (
-								<Link key={page.title} href={page.href} className="block">
-									<Card className="hover:bg-muted/50 transition-colors h-full">
-										<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-											<CardTitle className="text-sm font-medium">
-												{page.title}
-											</CardTitle>
-											<Icon className="h-4 w-4 text-muted-foreground" />
-										</CardHeader>
-										<CardContent>
-											<p className="text-sm text-muted-foreground">
-												{page.description}
-											</p>
-											<div className="flex items-center justify-between mt-4">
-												<Badge
-													variant={
-														page.status === "Ready" ? "default" : "secondary"
-													}
-													className="text-xs"
-												>
-													{page.status}
-												</Badge>
-												<ArrowRight className="h-4 w-4 text-muted-foreground" />
-											</div>
-										</CardContent>
-									</Card>
-								</Link>
-							);
-						})}
-					</div>
-				</CardContent>
-			</Card>
+			<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+				{authPages.map((page) => (
+					<Link href={page.href} key={page.title}>
+						<Card className="flex h-full transform flex-col transition-transform duration-300 hover:scale-105">
+							<CardHeader>
+								<div className="mb-2 flex justify-between">
+									<CardTitle>{page.title}</CardTitle>
+									<Badge
+										variant={page.status === "Ready" ? "default" : "secondary"}
+									>
+										{page.status}
+									</Badge>
+								</div>
+								<p className="text-sm text-muted-foreground">{page.description}</p>
+							</CardHeader>
+						</Card>
+					</Link>
+				))}
+			</div>
 		</div>
 	);
 }

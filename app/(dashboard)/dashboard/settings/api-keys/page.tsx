@@ -26,7 +26,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Separator } from "@/components/ui/separator"
-import { Key, Plus, MoreHorizontal, Copy, Trash2, Eye } from "lucide-react"
+import { Plus, MoreHorizontal, Copy, Trash2, Eye } from "lucide-react"
 
 const apiKeys = [
   {

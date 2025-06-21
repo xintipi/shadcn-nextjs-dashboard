@@ -38,7 +38,7 @@ export default function UnauthorizedPage() {
           </div>
           <div className="pt-4 border-t border-amber-100">
             <p className="text-xs text-amber-500">
-              Don't have an account? 
+              Don&apos;t have an account? 
               <Link href="/register" className="ml-1 underline hover:text-amber-700">
                 Sign up here
               </Link>

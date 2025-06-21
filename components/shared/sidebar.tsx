@@ -8,7 +8,6 @@ import {
 	Settings,
 	Users,
 	BarChart3,
-	Mail,
 	FolderKanban,
 	ChevronLeft,
 	ChevronRight,
@@ -19,7 +18,7 @@ import {
 	Shield,
 	HelpCircle,
 	LogIn,
-  AlertCircle,
+	AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -72,11 +71,11 @@ const sidebarGroups = [
 				href: "/dashboard/auth",
 				icon: LogIn,
 			},
-      {
-        title: "Error Pages",
-        href: "/dashboard/errors",
-        icon: AlertCircle,  
-      }
+			{
+				title: "Error Pages",
+				href: "/dashboard/errors",
+				icon: AlertCircle,
+			},
 		],
 	},
 	{

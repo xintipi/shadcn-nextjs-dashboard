@@ -26,12 +26,12 @@ export default function VerifyEmailPage() {
         <MailCheck className="mx-auto h-12 w-12 text-gray-400" />
         <CardTitle className="mt-4 text-2xl">Verify your email</CardTitle>
         <CardDescription>
-          We've sent an email to your address. Please click the link inside to verify your account.
+          We&apos;ve sent an email to your address. Please click the link inside to verify your account.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="text-center text-sm text-muted-foreground">
-            <p>Didn't receive the email? Check your spam folder or click below to resend.</p>
+            <p>Didn&apos;t receive the email? Check your spam folder or click below to resend.</p>
         </div>
       </CardContent>
       <CardFooter className="flex flex-col gap-4">

@@ -10,11 +10,11 @@ export default function ServerErrorPage() {
       <Card className="w-full max-w-md text-center border-red-200 shadow-lg">
         <CardHeader>
           <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-red-100 border-4 border-red-200">
-            <Server className="h-12 w-12 text-red-600" />
+            <Server className="h-12 w-12 text-red-500" />
           </div>
           <CardTitle className="text-2xl text-red-800">Server Error</CardTitle>
           <CardDescription className="text-red-700">
-            We're experiencing technical difficulties on our end. Our team has been notified and is working to fix the issue.
+            We&apos;re experiencing technical difficulties on our end. Our team has been notified and is working to fix the issue.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

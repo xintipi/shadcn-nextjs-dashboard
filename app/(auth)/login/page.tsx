@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,17 +19,19 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { LogIn, Mail, Lock } from "lucide-react"
 import Link from "next/link"
 
 const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters.",
+  password: z.string().min(6, {
+    message: "Password must be at least 6 characters.",
   }),
 })
 
@@ -46,16 +47,17 @@ export default function LoginPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
     toast.success("Login successful!", {
-      description: "You have been successfully logged in.",
+      description: "Welcome back! You have been logged in successfully.",
     })
   }
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
+    <Card className="w-full max-w-md">
+      <CardHeader className="text-center">
+        <LogIn className="mx-auto h-12 w-12 text-gray-400" />
+        <CardTitle className="mt-4 text-2xl">Welcome back</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account.
+          Enter your credentials to access your account
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -68,7 +70,14 @@ export default function LoginPage() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="m@example.com" {...field} />
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                      <Input
+                        placeholder="Enter your email"
+                        className="pl-10"
+                        {...field}
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -79,37 +88,47 @@ export default function LoginPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                    <div className="flex items-center">
-                        <FormLabel>Password</FormLabel>
-                        <Link
-                            href="/forgot-password"
-                            className="ml-auto inline-block text-sm underline"
-                        >
-                            Forgot your password?
-                        </Link>
-                    </div>
+                  <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder="********" {...field} />
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                      <Input
+                        type="password"
+                        placeholder="Enter your password"
+                        className="pl-10"
+                        {...field}
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <Button type="submit" className="w-full">
-              Login
-            </Button>
-            <Button variant="outline" className="w-full">
-                Login with Google
+              Sign In
             </Button>
           </form>
         </Form>
-        <div className="mt-4 text-center text-sm">
+      </CardContent>
+      <CardFooter className="flex flex-col gap-4">
+        <div className="text-center text-sm">
+          <Link
+            href="/forgot-password"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
+            Forgot your password?
+          </Link>
+        </div>
+        <div className="text-center text-sm">
           Don&apos;t have an account?{" "}
-          <Link href="/register" className="underline">
+          <Link
+            href="/register"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
             Sign up
           </Link>
         </div>
-      </CardContent>
+      </CardFooter>
     </Card>
   )
 } 

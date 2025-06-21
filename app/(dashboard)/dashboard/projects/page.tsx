@@ -1,51 +1,71 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Plus, Calendar, Users, Target } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Plus, Calendar, Users, ArrowUpRight } from "lucide-react";
 
 const projects = [
 	{
 		id: 1,
-		name: "Website Redesign",
-		description: "Complete redesign of the company website with modern UI/UX",
-		status: "In Progress",
+		name: "E-commerce Platform",
+		description: "Building a modern e-commerce platform with React and Node.js",
 		progress: 75,
-		team: ["John Doe", "Jane Smith", "Bob Johnson"],
+		status: "In Progress",
+		team: ["JD", "MK", "AL"],
 		dueDate: "2024-04-15",
 		priority: "High",
 	},
 	{
 		id: 2,
-		name: "Mobile App Development",
-		description: "iOS and Android app for customer engagement",
-		status: "Planning",
-		progress: 25,
-		team: ["Alice Brown", "Charlie Wilson"],
-		dueDate: "2024-06-30",
+		name: "Mobile App Redesign",
+		description: "Redesigning the mobile app for better user experience",
+		progress: 45,
+		status: "In Progress",
+		team: ["SM", "RK"],
+		dueDate: "2024-05-01",
 		priority: "Medium",
 	},
 	{
 		id: 3,
-		name: "Database Migration",
-		description: "Migrate from MySQL to PostgreSQL with zero downtime",
-		status: "Completed",
-		progress: 100,
-		team: ["David Lee", "Emma Davis"],
-		dueDate: "2024-03-01",
+		name: "API Integration",
+		description: "Integrating third-party APIs for payment processing",
+		progress: 90,
+		status: "Almost Done",
+		team: ["JD", "AL"],
+		dueDate: "2024-03-30",
 		priority: "High",
 	},
 	{
 		id: 4,
-		name: "Marketing Campaign",
-		description: "Q2 marketing campaign for new product launch",
+		name: "Database Migration",
+		description: "Migrating from MySQL to PostgreSQL",
+		progress: 30,
 		status: "In Progress",
-		progress: 60,
-		team: ["Frank Miller", "Grace Taylor"],
-		dueDate: "2024-05-20",
+		team: ["MK", "SM"],
+		dueDate: "2024-06-15",
 		priority: "Low",
+	},
+	{
+		id: 5,
+		name: "Security Audit",
+		description: "Conducting comprehensive security audit",
+		progress: 100,
+		status: "Completed",
+		team: ["RK", "AL"],
+		dueDate: "2024-03-20",
+		priority: "High",
+	},
+	{
+		id: 6,
+		name: "Performance Optimization",
+		description: "Optimizing application performance and load times",
+		progress: 60,
+		status: "In Progress",
+		team: ["JD", "MK", "SM"],
+		dueDate: "2024-04-30",
+		priority: "Medium",
 	},
 ];
 
@@ -69,67 +89,35 @@ export default function ProjectsPage() {
 				{projects.map((project) => (
 					<Card key={project.id} className="hover:shadow-lg transition-shadow">
 						<CardHeader>
+							<div className="flex items-start justify-between">
+								<div>
+									<CardTitle className="text-lg">{project.name}</CardTitle>
+									<CardDescription className="mt-2">
+										{project.description}
+									</CardDescription>
+								</div>
+								<ArrowUpRight className="h-5 w-5 text-muted-foreground" />
+							</div>
+						</CardHeader>
+						<CardContent className="space-y-4">
 							<div className="flex items-center justify-between">
-								<CardTitle className="text-lg">{project.name}</CardTitle>
+								<span className="text-sm text-muted-foreground">Progress</span>
+								<span className="text-sm font-medium">{project.progress}%</span>
+							</div>
+							<Progress value={project.progress} className="h-2" />
+							
+							<div className="flex items-center justify-between">
 								<Badge
 									variant={
 										project.status === "Completed"
 											? "default"
-											: project.status === "In Progress"
+											: project.status === "Almost Done"
 												? "secondary"
 												: "outline"
 									}
 								>
 									{project.status}
 								</Badge>
-							</div>
-							<p className="text-sm text-muted-foreground">
-								{project.description}
-							</p>
-						</CardHeader>
-						<CardContent className="space-y-4">
-							{/* Progress */}
-							<div className="space-y-2">
-								<div className="flex items-center justify-between text-sm">
-									<span>Progress</span>
-									<span>{project.progress}%</span>
-								</div>
-								<Progress value={project.progress} className="h-2" />
-							</div>
-
-							{/* Team */}
-							<div className="flex items-center gap-2">
-								<Users className="h-4 w-4 text-muted-foreground" />
-								<div className="flex -space-x-2">
-									{project.team.slice(0, 3).map((member, index) => (
-										<Avatar
-											key={index}
-											className="h-6 w-6 border-2 border-white"
-										>
-											<AvatarFallback className="text-xs">
-												{member
-													.split(" ")
-													.map((n) => n[0])
-													.join("")}
-											</AvatarFallback>
-										</Avatar>
-									))}
-									{project.team.length > 3 && (
-										<div className="h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-xs">
-											+{project.team.length - 3}
-										</div>
-									)}
-								</div>
-							</div>
-
-							{/* Due Date and Priority */}
-							<div className="flex items-center justify-between text-sm">
-								<div className="flex items-center gap-1 text-muted-foreground">
-									<Calendar className="h-4 w-4" />
-									<span>
-										Due {new Date(project.dueDate).toLocaleDateString()}
-									</span>
-								</div>
 								<Badge
 									variant={
 										project.priority === "High"
@@ -143,14 +131,27 @@ export default function ProjectsPage() {
 								</Badge>
 							</div>
 
-							{/* Actions */}
-							<div className="flex gap-2">
-								<Button variant="outline" size="sm" className="flex-1">
-									View Details
-								</Button>
-								<Button size="sm" className="flex-1">
-									Edit
-								</Button>
+							<div className="flex items-center justify-between text-sm text-muted-foreground">
+								<div className="flex items-center gap-1">
+									<Calendar className="h-4 w-4" />
+									<span>Due {new Date(project.dueDate).toLocaleDateString()}</span>
+								</div>
+								<div className="flex items-center gap-1">
+									<Users className="h-4 w-4" />
+									<span>{project.team.length} members</span>
+								</div>
+							</div>
+
+							<div className="flex items-center gap-2">
+								<div className="flex -space-x-2">
+									{project.team.map((member, index) => (
+										<Avatar key={index} className="h-8 w-8 border-2 border-background">
+											<AvatarFallback className="text-xs bg-blue-100 text-blue-600">
+												{member}
+											</AvatarFallback>
+										</Avatar>
+									))}
+								</div>
 							</div>
 						</CardContent>
 					</Card>

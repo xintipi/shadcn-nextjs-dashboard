@@ -10,11 +10,11 @@ export default function ForbiddenPage() {
       <Card className="w-full max-w-md text-center border-red-200 shadow-lg">
         <CardHeader>
           <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-red-100 border-4 border-red-200">
-            <Lock className="h-12 w-12 text-red-600" />
+            <Lock className="h-12 w-12 text-red-500" />
           </div>
           <CardTitle className="text-2xl text-red-800">Access Forbidden</CardTitle>
           <CardDescription className="text-red-700">
-            You don't have permission to access this resource. Please contact your administrator if you believe this is an error.
+            You don&apos;t have permission to access this resource. Please contact your administrator if you believe this is an error.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Wrench, Clock, RefreshCw, Calendar, AlertCircle } from "lucide-react"
@@ -14,7 +13,7 @@ export default function MaintenancePage() {
           </div>
           <CardTitle className="text-2xl text-blue-800">Under Maintenance</CardTitle>
           <CardDescription className="text-blue-700">
-            We're currently performing scheduled maintenance to improve your experience. We'll be back shortly.
+            We&apos;re currently performing scheduled maintenance to improve your experience. We&apos;ll be back shortly.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

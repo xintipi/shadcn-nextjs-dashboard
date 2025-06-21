@@ -1,73 +1,86 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-import { cn } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
-
-interface SettingsSidebarNavProps extends React.HTMLAttributes<HTMLElement> {
-	items: {
-		href: string;
-		title: string;
-	}[];
-}
-
-function SettingsSidebarNav({
-	className,
-	items,
-	...props
-}: SettingsSidebarNavProps) {
-	const pathname = usePathname();
-
-	return (
-		<nav
-			className={cn(
-				"flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1",
-				className,
-			)}
-			{...props}
-		>
-			{items.map((item) => (
-				<Link
-					key={item.href}
-					href={item.href}
-					className={cn(
-						"w-full",
-						"inline-flex items-center justify-start whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors",
-						"focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
-						pathname === item.href
-							? "bg-muted hover:bg-muted"
-							: "hover:bg-transparent hover:underline",
-					)}
-				>
-					{item.title}
-				</Link>
-			))}
-		</nav>
-	);
-}
-
 import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Camera } from "lucide-react";
 
-export default function SettingsProfilePage() {
+const profileFormSchema = z.object({
+	username: z
+		.string()
+		.min(2, {
+			message: "Username must be at least 2 characters.",
+		})
+		.max(30, {
+			message: "Username must not be longer than 30 characters.",
+		}),
+	name: z
+		.string()
+		.min(2, {
+			message: "Name must be at least 2 characters.",
+		})
+		.max(100, {
+			message: "Name must not be longer than 100 characters.",
+		}),
+	email: z
+		.string({
+			required_error: "Please select an email to display.",
+		})
+		.email(),
+	bio: z.string().max(500, {
+		message: "Bio must not be longer than 500 characters.",
+	}),
+	urls: z
+		.array(
+			z.object({
+				value: z.string().url({ message: "Please enter a valid URL." }),
+			})
+		)
+		.optional(),
+});
+
+type ProfileFormValues = z.infer<typeof profileFormSchema>;
+
+// This can come from your database
+const defaultValues: Partial<ProfileFormValues> = {
+	bio: "I own a computer.",
+	urls: [
+		{ value: "https://shadcn.com" },
+		{ value: "http://twitter.com/shadcn" },
+	],
+};
+
+export default function SettingsPage() {
+	const form = useForm<ProfileFormValues>({
+		resolver: zodResolver(profileFormSchema),
+		defaultValues,
+		mode: "onChange",
+	});
+
+	function onSubmit(data: ProfileFormValues) {
+		console.log("Profile data:", data);
+		toast.success("Profile updated successfully!", {
+			description: "Your profile has been updated.",
+		});
+	}
+
 	return (
 		<div className="space-y-6">
 			<div>
@@ -76,55 +89,102 @@ export default function SettingsProfilePage() {
 					This is how others will see you on the site.
 				</p>
 			</div>
-			<Separator className="my-6" />
-			<div className="space-y-8">
-				<div className="space-y-2">
-					<Label htmlFor="username">Username</Label>
-					<Input id="username" placeholder="Enter your username" />
-					<p className="text-sm text-muted-foreground">
-						This is your public display name. It can be your real name or a
-						pseudonym. You can only change this once every 30 days.
-					</p>
-				</div>
-				<div className="space-y-2">
-					<Label htmlFor="email">Email</Label>
-					<Select>
-						<SelectTrigger>
-							<SelectValue placeholder="Select a verified email to display" />
-						</SelectTrigger>
-						<SelectContent>
-							<SelectItem value="user1@example.com">
-								user1@example.com
-							</SelectItem>
-							<SelectItem value="user2@example.com">
-								user2@example.com
-							</SelectItem>
-						</SelectContent>
-					</Select>
-					<p className="text-sm text-muted-foreground">
-						You can manage verified email addresses in your email settings.
-					</p>
-				</div>
-				<div className="space-y-2">
-					<Label htmlFor="bio">Bio</Label>
-					<Textarea id="bio" placeholder="Type your message here." />
-					<p className="text-sm text-muted-foreground">
-						You can @mention other users and organizations to link to them.
-					</p>
-				</div>
-				<div className="space-y-2">
-					<Label>URLs</Label>
-					<div className="space-y-2">
-						<Input placeholder="https://shadcn.com" />
-						<Input placeholder="http://twitter.com/shadcn" />
+			<Separator />
+			<Form {...form}>
+				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+					<div className="flex items-center gap-6">
+						<Avatar className="h-20 w-20">
+							<AvatarImage src="/avatars/01.png" alt="@username" />
+							<AvatarFallback>JD</AvatarFallback>
+						</Avatar>
+						<div className="space-y-2">
+							<Label htmlFor="picture">Profile Picture</Label>
+							<Button variant="outline" size="sm" className="w-fit">
+								<Camera className="mr-2 h-4 w-4" />
+								Change Picture
+							</Button>
+						</div>
 					</div>
-					<Button variant="outline" size="sm">
-						Add URL
-					</Button>
-				</div>
-
-				<Button>Update Profile</Button>
-			</div>
+					<div className="grid gap-6 md:grid-cols-2">
+						<FormField
+							control={form.control}
+							name="username"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Username</FormLabel>
+									<FormControl>
+										<Input placeholder="username" {...field} />
+									</FormControl>
+									<FormDescription>
+										This is your public display name. It can be your real name or a
+										pseudonym.
+									</FormDescription>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="name"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Name</FormLabel>
+									<FormControl>
+										<Input placeholder="John Doe" {...field} />
+									</FormControl>
+									<FormDescription>
+										This is your public display name. It can be your real name or a
+										pseudonym.
+									</FormDescription>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<FormField
+						control={form.control}
+						name="email"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Email</FormLabel>
+								<FormControl>
+									<Input placeholder="john.doe@example.com" {...field} />
+								</FormControl>
+								<FormDescription>
+									You can manage verified email addresses in your{" "}
+									<a href="#" className="underline underline-offset-4">
+										email settings
+									</a>
+									.
+								</FormDescription>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="bio"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Bio</FormLabel>
+								<FormControl>
+									<Textarea
+										placeholder="Tell us a little bit about yourself"
+										className="resize-none"
+										{...field}
+									/>
+								</FormControl>
+								<FormDescription>
+									You can <span>@mention</span> other users and organizations to
+									link to them.
+								</FormDescription>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<Button type="submit">Update profile</Button>
+				</form>
+			</Form>
 		</div>
 	);
 }
