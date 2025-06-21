@@ -39,16 +39,16 @@ const Index = () => {
           </Badge>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Build Beautiful
+            Beautiful
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent block">
-              Dashboards
+              Dashboard
             </span>
-            in Minutes
+            Template
           </h1>
           
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            The most advanced open-source dashboard framework built with Next.js 14, 
-            shadcn/ui, and Tailwind CSS. Create stunning admin panels with zero configuration.
+            A modern, responsive dashboard UI built with Next.js 14, shadcn/ui, and Tailwind CSS. 
+            Ready-to-use admin panel with beautiful components and layouts.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -69,16 +69,19 @@ const Index = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">10K+</div>
-              <div className="text-sm text-gray-400">Stars</div>
+              <div className="text-2xl font-bold text-white">
+              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shacn-nextjs-dashboard&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">500+</div>
-              <div className="text-sm text-gray-400">Contributors</div>
+              <div className="text-2xl font-bold text-white">
+              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shacn-nextjs-dashboard&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">50K+</div>
-              <div className="text-sm text-gray-400">Downloads</div>
+              <div className="text-2xl font-bold text-white">
+              <iframe src="https://ghbtns.com/github-btn.html?user=naveenda&repo=shacn-nextjs-dashboard&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -187,7 +190,7 @@ const Index = () => {
                 </div>
                 <div className="font-mono text-sm space-y-2">
                   <div className="text-gray-400"># Clone the repository</div>
-                  <div className="text-green-400">git clone https://github.com/NaveenDA/dashboard-os.git</div>
+                  <div className="text-green-400">git clone https://github.com/NaveenDA/shacn-nextjs-dashboard.git</div>
                   <div className="text-gray-400"># Install dependencies</div>
                   <div className="text-green-400">npm install</div>
                   <div className="text-gray-400"># Start development server</div>
@@ -211,13 +214,17 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 px-8 py-6 text-lg">
+            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 px-8 py-6 text-lg" asChild>
+              <Link href="/dashboard">
               Get Started
               <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-gray-600  hover:bg-black px-8 py-6 text-lg text-black hover:text-white hover:border-black ">
+            <Button size="lg" variant="outline" className="border-gray-600  hover:bg-black px-8 py-6 text-lg text-black hover:text-white hover:border-black " asChild>
+              <Link href="https://github.com/naveenda/shacn-nextjs-dashboard">
               <Github className="w-5 h-5 mr-2" />
                GitHub
+              </Link>
             </Button>
           </div>
         </div>
@@ -239,11 +246,15 @@ const Index = () => {
                 Created with ❤️ by NaveenDA and the community.
               </p>
               <div className="flex space-x-4">
-                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-black">
-                  <Github className="w-5 h-5" />
+                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-black" asChild>
+                  <Link href="https://github.com/naveenda/shacn-nextjs-dashboard">
+                    <Github className="w-5 h-5" />
+                  </Link>
                 </Button>
-                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-black">
+                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-black" asChild>
+                  <Link href="https://github.com/naveenda/shacn-nextjs-dashboard">
                   <Star className="w-5 h-5" />
+                  </Link>
                 </Button>
               </div>
             </div>
