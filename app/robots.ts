@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         '/admin/',
       ],
     },
-    sitemap: 'https://dashboard-template.vercel.app/sitemap.xml',
+    sitemap: 'https://shadcn-nextjs-dashboard.vercel.app/sitemap.xml',
   }
 } 

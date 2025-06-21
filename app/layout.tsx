@@ -29,14 +29,14 @@ export const metadata: Metadata = {
 		address: false,
 		telephone: false,
 	},
-	metadataBase: new URL("https://dashboard-template.vercel.app"),
+	metadataBase: new URL("https://shadcn-nextjs-dashboard.vercel.app"),
 	alternates: {
 		canonical: "/",
 	},
 	openGraph: {
 		type: "website",
 		locale: "en_US",
-		url: "https://dashboard-template.vercel.app",
+		url: "https://shadcn-nextjs-dashboard.vercel.app",
 		title: "Modern Dashboard Template - Next.js 14 & shadcn/ui",
 		description: "A beautiful, responsive dashboard template built with Next.js 14, shadcn/ui, and Tailwind CSS. Ready-to-use admin panel with modern UI components.",
 		siteName: "Dashboard Template",
