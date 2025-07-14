@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://shadcn-nextjs-dashboard.vercel.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string
 
   return [
     {

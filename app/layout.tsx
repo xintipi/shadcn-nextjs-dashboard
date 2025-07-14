@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://shadcn-nextjs-dashboard.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://shadcn-nextjs-dashboard.vercel.app',
+    url: process.env.NEXT_PUBLIC_BASE_URL as string,
     title: 'Modern Dashboard Template - Next.js 14 & shadcn/ui',
     description:
       'A beautiful, responsive dashboard template built with Next.js 14, shadcn/ui, and Tailwind CSS. Ready-to-use admin panel with modern UI components.',
