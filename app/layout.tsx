@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
+  // metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
   alternates: {
     canonical: '/',
   },
