@@ -24,7 +24,7 @@ A modern, responsive dashboard application built with Next.js 14, TypeScript, an
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/naveenda/shacn-nextjs-dashboard.git
+   git clone https://github.com/xintipi/shadcn-nextjs-dashboard.git
    cd shacn-nextjs-dashboard
    ```
 
