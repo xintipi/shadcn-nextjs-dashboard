@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://shadcn-nextjs-dashboard.vercel.app'
-  
+
   return [
     {
       url: baseUrl,
@@ -125,4 +125,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
   ]
-} 
+}

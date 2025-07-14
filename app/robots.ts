@@ -15,4 +15,4 @@ export default function robots(): MetadataRoute.Robots {
     },
     sitemap: 'https://shadcn-nextjs-dashboard.vercel.app/sitemap.xml',
   }
-} 
+}

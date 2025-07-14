@@ -22,12 +22,14 @@ A modern, responsive dashboard application built with Next.js 14, TypeScript, an
 ## 🛠️ Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/naveenda/shacn-nextjs-dashboard.git
    cd shacn-nextjs-dashboard
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -35,6 +37,7 @@ A modern, responsive dashboard application built with Next.js 14, TypeScript, an
    ```
 
 3. Run the development server:
+
    ```bash
    npm run dev
    # or
@@ -63,6 +66,7 @@ A modern, responsive dashboard application built with Next.js 14, TypeScript, an
 ## 🎨 Customization
 
 This project uses shadcn/ui components which are fully customizable. You can modify the theme in:
+
 - `app/globals.css` - For global styles
 - `components.json` - For component configurations
 
