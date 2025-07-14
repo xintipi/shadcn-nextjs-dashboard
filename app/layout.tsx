@@ -5,9 +5,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Modern Dashboard Template - Next.js 14 & shadcn/ui',
+  title: 'Modern Dashboard Template - Next.js 15 & shadcn/ui',
   description:
-    'A beautiful, responsive dashboard template built with Next.js 14, shadcn/ui, and Tailwind CSS. Ready-to-use admin panel with modern UI components.',
+    'A beautiful, responsive dashboard template built with Next.js 15, shadcn/ui, and Tailwind CSS. Ready-to-use admin panel with modern UI components.',
   keywords: [
     'dashboard template',
     'admin panel',
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_BASE_URL as string,
-    title: 'Modern Dashboard Template - Next.js 14 & shadcn/ui',
+    title: 'Modern Dashboard Template - Next.js 15 & shadcn/ui',
     description:
-      'A beautiful, responsive dashboard template built with Next.js 14, shadcn/ui, and Tailwind CSS. Ready-to-use admin panel with modern UI components.',
+      'A beautiful, responsive dashboard template built with Next.js 15, shadcn/ui, and Tailwind CSS. Ready-to-use admin panel with modern UI components.',
     siteName: 'Dashboard Template',
     images: [
       {
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Modern Dashboard Template - Next.js 14 & shadcn/ui',
+    title: 'Modern Dashboard Template - Next.js 15 & shadcn/ui',
     description:
-      'A beautiful, responsive dashboard template built with Next.js 14, shadcn/ui, and Tailwind CSS.',
+      'A beautiful, responsive dashboard template built with Next.js 15, shadcn/ui, and Tailwind CSS.',
     images: ['/og-image.png'],
   },
   robots: {
