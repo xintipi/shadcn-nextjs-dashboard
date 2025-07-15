@@ -1,6 +1,7 @@
 'use client'
 
 import { Activity, CreditCard, DollarSign, Users } from 'lucide-react'
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const stats = [

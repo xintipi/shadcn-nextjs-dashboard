@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { Lock, LogIn, Mail } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Lock, LogIn, Mail } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { toast } from 'sonner'
+import { z } from 'zod'
+
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -44,7 +45,6 @@ export default function LoginPage() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
     toast.success('Login successful!', {
       description: 'Welcome back! You have been logged in successfully.',
     })

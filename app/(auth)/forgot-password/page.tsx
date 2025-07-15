@@ -3,8 +3,9 @@
 import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { toast } from 'sonner'
+import { z } from 'zod'
+
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -38,7 +39,6 @@ export default function ForgotPasswordPage() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
     toast.success('Password reset email sent!', {
       description:
         'If an account exists with that email, you will receive a password reset link.',

@@ -1,10 +1,11 @@
 'use client'
 
-import { ShieldCheck } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { ShieldCheck } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { toast } from 'sonner'
+import { z } from 'zod'
+
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -43,7 +44,6 @@ export default function TwoFactorAuthPage() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
     toast.success('Two-Factor Authentication enabled!', {
       description: 'Your account is now protected with 2FA.',
     })

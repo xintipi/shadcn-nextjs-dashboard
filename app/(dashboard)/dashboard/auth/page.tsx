@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Key, Lock, LogIn, Mail, Shield, UserPlus } from 'lucide-react'
+
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 

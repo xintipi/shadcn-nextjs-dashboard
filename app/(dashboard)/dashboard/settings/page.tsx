@@ -1,10 +1,11 @@
 'use client'
 
-import { Camera } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Camera } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { toast } from 'sonner'
+import { z } from 'zod'
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -74,7 +75,6 @@ export default function SettingsPage() {
   })
 
   function onSubmit(data: ProfileFormValues) {
-    console.log('Profile data:', data)
     toast.success('Profile updated successfully!', {
       description: 'Your profile has been updated.',
     })

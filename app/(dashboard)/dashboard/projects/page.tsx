@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowUpRight, Calendar, Plus, Users } from 'lucide-react'
+
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
