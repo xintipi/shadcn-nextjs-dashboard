@@ -22,9 +22,6 @@ const eslintConfig = [
       '*.config.js',
       '*.config.mjs',
       '*.d.ts',
-      'commitlint.config.js',
-      'postcss.config.mjs',
-      'next.config.ts',
     ],
   },
   {
